@@ -22,6 +22,7 @@ def postList():
     # template as a variable with all the posts in the object and
     # can be displayed with a for loop in the template
     return render_template('posts.html',posts=posts)
+    #saying to give the user that page, and send its data (the posts), (sending a variable to the user)
 
 @app.route('/post/new', methods=['GET', 'POST'])
 @login_required
