@@ -33,8 +33,8 @@ def profileEdit():
         # This updates the data on the user record that was collected from the form
         currUser.update(
             lname = form.lname.data,
-            fname = form.fname.data
-            role = form.role.data
+            fname = form.fname.data,
+            role = form.role.data,
         )
         # This updates the profile image
         if form.image.data:
