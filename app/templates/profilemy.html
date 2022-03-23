@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1 class="display-1">
+<h2 class="display-1">
     My Profile
     <a href="/myprofile/edit">
         <img width="40" src="/static/edit.png">
     </a>
-</h1>
+</h2>
 
 
 <div class="row">
@@ -19,7 +19,7 @@
     </div>
     <div class="col display-5">
         {% if current_user.fname and current_user.lname %}
-            Real Name: {{current_user.fname}}  {{current_user.lname}} <br>
+            Name: {{current_user.fname}}  {{current_user.lname}} <br>
         {% endif %}
         
         Username: {{current_user.username}} <br>
