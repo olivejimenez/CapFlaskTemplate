@@ -31,9 +31,15 @@
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
+                    <h3 class="display-5">Movie</h3>
                 {% endif %}
-                {{post.subject}}
+                {{post.movie}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Rating</h3>
+                {% endif %}
+                {{post.rating}}
             </div>
         </div>
     {% endfor %}
