@@ -54,4 +54,4 @@ def reviewNew():
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
     # stored in the form object and are displayed on the form. take a look at postform.html to 
     # see how that works.
-    return render_template('review.html',form=form)
+    return render_template('reviewform.html',form=form)

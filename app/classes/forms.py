@@ -71,6 +71,7 @@ class ReviewForm(FlaskForm):
     content = TextAreaField('Post', validators=[DataRequired()])
     review = SelectField('review', choices = [("1 star", "1 star"),("2 stars", "2 stars"),("3 stars", "3 stars"),("4 stars", "4 stars"),("5 stars","5 stars")])
     submit = SubmitField('Post')
+    
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
