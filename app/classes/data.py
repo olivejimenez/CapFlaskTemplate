@@ -63,6 +63,10 @@ class Review(Document):
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
 
+    meta = {
+        'ordering': ['-createdate']
+    }
+
 class Comment(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     post = ReferenceField('Post',reverse_delete_rule=CASCADE)
