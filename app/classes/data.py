@@ -56,6 +56,13 @@ class Post(Document):
         'ordering': ['-createdate']
     }
 
+class Review(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)
+    subject = StringField()
+    content = StringField()
+    createdate = DateTimeField(default=dt.datetime.utcnow)
+    modifydate = DateTimeField()
+
 class Comment(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     post = ReferenceField('Post',reverse_delete_rule=CASCADE)
