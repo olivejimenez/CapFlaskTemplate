@@ -59,7 +59,7 @@ class ProfileForm(FlaskForm):
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
     submit = SubmitField('Post')
-    role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student")])
+    role = SelectField('Status',choices=[("New to film","New to film"),("Knows some of the classics","Knows some of the classics"),("Somewhat of a film bro","Somewhat of a film bro"),("Criterion Collection watcher only","Criterion Collection watcher only")])
 
 class PostForm(FlaskForm):
     subject = StringField('Movie', validators=[DataRequired()])
