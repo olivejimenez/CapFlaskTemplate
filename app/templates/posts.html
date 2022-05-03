@@ -41,6 +41,12 @@
                 {% endif %}
                 {{post.rating}}
             </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Review</h3>
+                {% endif %}
+                {{post.review}}
+            </div>
         </div>
     {% endfor %}
 {% else %}

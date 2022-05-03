@@ -12,17 +12,17 @@ from flask_login import login_required
 import datetime as dt
 
 # This is the route to list all posts
-@app.route('/review/list')
+@app.route('/post/list')
 # This means the user must be logged in to see this page
 @login_required
-def reviewList():
+def postList():
     # This retrieves all of the 'posts' that are stored in MongoDB and places them in a
     # mongoengine object as a list of dictionaries name 'posts'.
     posts = Post.objects()
     # This renders (shows to the user) the posts.html template. it also sends the posts object 
     # to the template as a variable named posts.  The template uses a for loop to display
     # each post.
-    return render_template('reviews.html',posts=posts)
+    return render_template('posts.html',posts=posts)
     #saying to give the user that page, and send its data (the posts), (sending a variable to the user)
 
 # This route will get one specific post and any comments associated with that post.  
@@ -30,12 +30,12 @@ def reviewList():
 # can then be used in the query to retrieve that post from the database. This route 
 # is called when the user clicks a link on postlist.html template.
 # The angle brackets (<>) indicate a variable. 
-@app.route('/review/<reviewID>')
+@app.route('/post/<postID>')
 # This route will only run if the user is logged in.
 @login_required
-def review(reviewID):
+def post(postID):
     # retrieve the post using the postID
-    thisReview = Review.objects.get(id=reviewID)
+    thisPost = Post.objects.get(id=postID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
     # related to posts meaning that every comment contains a reference to a post. In this case
     # there is a field on the comment collection called 'post' that is a reference the Post
@@ -116,7 +116,7 @@ def postNew():
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
     # stored in the form object and are displayed on the form. take a look at postform.html to 
     # see how that works.
-    return render_template('reviewform.html',form=form)
+    return render_template('postform.html',form=form)
 
 
 # This route enables a user to edit a post.  This functions very similar to creating a new 
@@ -153,7 +153,7 @@ def postEdit(postID):
 
     # Send the user to the post form that is now filled out with the current information
     # from the form.
-    return render_template('reviewform.html',form=form)
+    return render_template('postform.html',form=form)
 
 #####
 # the routes below are the CRUD for the comments that are related to the posts. This

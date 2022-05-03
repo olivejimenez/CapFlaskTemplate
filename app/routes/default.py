@@ -10,6 +10,6 @@ def index():
 def aboutus():
     return render_template('aboutus.html')
 
-@app.route('/review')
-def review():
-    return render_template('review.html')
+@app.route('/post')
+def post():
+    return render_template('post.html')
