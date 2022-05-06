@@ -18,7 +18,7 @@ import datetime as dt
 # This means the user must be logged in to see this page
 @login_required
 # This is a function that is run when the user requests this route.
-def postNew():
+def PostNew():
     # This gets the form object from the form.py classes that can be displayed on the template.
     form = PostForm()
 
@@ -32,10 +32,12 @@ def postNew():
         newPost = Post(
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
-            subject = form.subject.data,
-            content = form.content.data,
+            title = form.subject.data,
+            year = form.content.data,
+            director = form.content.data,
+            genre = form.select.data,
+            review = form.content.data,
             author = current_user.id,
-            review = form.subject.data,
             # This sets the modifydate to the current datetime.
             modifydate = dt.datetime.utcnow
         )

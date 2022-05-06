@@ -7,7 +7,7 @@
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE, IntField
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
@@ -46,23 +46,14 @@ class User(UserMixin, Document):
 
 class Post(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
-    subject = StringField()
-    content = StringField()
+    title = StringField()
+    year = IntField()
+    director = StringField()
+    genre = StringField()
+    review = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
-
-    meta = {
-        'ordering': ['-createdate']
-    }
-
-class Review(Document):
-    author = ReferenceField('User',reverse_delete_rule=CASCADE)
-    movietitle = StringField()
-    content = StringField()
-    createdate = DateTimeField(default=dt.datetime.utcnow)
-    modifydate = DateTimeField()
-    review= StringField()
-
+   
     meta = {
         'ordering': ['-createdate']
     }

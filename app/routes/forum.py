@@ -33,7 +33,7 @@ def postList():
 @app.route('/post/<postID>')
 # This route will only run if the user is logged in.
 @login_required
-def post(postID):
+def Post(postID):
     # retrieve the post using the postID
     thisPost = Post.objects.get(id=postID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
@@ -95,8 +95,11 @@ def postNew():
         newPost = Post(
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
-            subject = form.subject.data,
-            content = form.content.data,
+            title = form.subject.data,
+            year = form.content.data,
+            director = form.content.data,
+            genre = form.select.data,
+            review = form.content.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
             modifydate = dt.datetime.utcnow
@@ -139,8 +142,12 @@ def postEdit(postID):
     if form.validate_on_submit():
         # update() is mongoengine method for updating an existing document with new data.
         editPost.update(
-            subject = form.subject.data,
-            content = form.content.data,
+            title = form.subject.data,
+            year = form.content.data,
+            director = form.content.data,
+            genre = form.select.data,
+            review = form.content.data,
+            author = current_user.id,
             modifydate = dt.datetime.utcnow
         )
         # After updating the document, send the user to the updated post using a redirect.
@@ -150,6 +157,11 @@ def postEdit(postID):
     # and place it in the form object so it will be displayed to the user on the template.
     form.subject.data = editPost.subject
     form.content.data = editPost.content
+    form.title.data = editPost.title
+    form.year.data =editPost.year
+    form.director.data = editPost.director
+    form.genre.data = editPost.genre
+    form.review.data = editPost.review
 
     # Send the user to the post form that is now filled out with the current information
     # from the form.

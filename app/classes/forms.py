@@ -65,6 +65,7 @@ class PostForm(FlaskForm):
     subject = StringField('Movie', validators=[DataRequired()])
     content = TextAreaField('Post', validators=[DataRequired()])
     review = SelectField('review', choices = [("1 star", "1 star"),("2 stars", "2 stars"),("3 stars", "3 stars"),("4 stars", "4 stars"),("5 stars","5 stars")])
+    genre = SelectField('Genre', choices=[("comedy","comedy"),("horror","horror"),("drama","drama","experimental","experimental")])
     submit = SubmitField('Post')
     
 class CommentForm(FlaskForm):
