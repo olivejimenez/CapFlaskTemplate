@@ -51,6 +51,7 @@ class Post(Document):
     director = StringField()
     genre = StringField()
     review = StringField()
+    rating = StringField()
     createdate = DateTimeField(default=dt.datetime.utcnow)
     modifydate = DateTimeField()
    

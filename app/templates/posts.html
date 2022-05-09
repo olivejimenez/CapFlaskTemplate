@@ -32,21 +32,39 @@
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Movie</h3>
+                    <h3 class="display-5">Movie Title</h3>
                 {% endif %}
-                {{post.movie}}
+                {{post.title}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Rating</h3>
+                    <h3 class="display-5">Year</h3>
                 {% endif %}
-                {{post.rating}}
+                {{post.year}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Director</h3>
+                {% endif %}
+                {{post.director}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Genre</h3>
+                {% endif %}
+                {{post.genre}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
                     <h3 class="display-5">Review</h3>
                 {% endif %}
                 {{post.review}}
+             </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3 class="display-5">Rating</h3>
+                {% endif %}
+                {{post.rating}}
             </div>
         </div>
     {% endfor %}
