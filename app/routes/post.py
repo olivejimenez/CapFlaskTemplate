@@ -32,11 +32,10 @@ def PostNew():
         newPost = Post(
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
-            title = form.subject.data,
-            year = form.content.data,
-            director = form.content.data,
-            genre = form.select.data,
-            review = form.content.data,
+            title = form.title.data,
+            director = form.director.data,
+            genre = form.genre.data,
+            review = form.review.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
             modifydate = dt.datetime.utcnow

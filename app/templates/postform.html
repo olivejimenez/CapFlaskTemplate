@@ -14,16 +14,8 @@
                 {% endfor %}
             </p>
             <p>
-                {{ form.year.label }} <br>
-                {{ form.year(size=64) }}
-                <!--List the errors for this field-->
-                {% for error in form.year.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
                 {{ form.director.label }} <br>
-                {{ form.director(size=64) }}
+                {{ form.director() }}
                 <!--List the errors for this field-->
                 {% for error in form.director.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -31,7 +23,7 @@
             </p>
             <p>
                 {{ form.genre.label }} <br>
-                {{ form.genre(size=64) }}
+                {{ form.genre() }}
                 <!--List the errors for this field-->
                 {% for error in form.genre.errors %}
                     <span style="color: red;">[{{ error }}]</span>
@@ -47,7 +39,7 @@
             </p>
             <p>
                 {{ form.rating.label }} <br>
-                {{ form.rating(size=64) }}
+                {{ form.rating() }}
                 <!--List the errors for this field-->
                 {% for error in form.rating.errors %}
                     <span style="color: red;">[{{ error }}]</span>

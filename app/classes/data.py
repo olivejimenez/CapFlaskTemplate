@@ -47,7 +47,6 @@ class User(UserMixin, Document):
 class Post(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     title = StringField()
-    year = IntField()
     director = StringField()
     genre = StringField()
     review = StringField()

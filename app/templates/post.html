@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
+<body style="font-family: courier;">
 {% if post %}
 
 {{moment(post.createdate).calendar()}} by {{post.author.username}} 
@@ -21,12 +21,12 @@
     <h1 class="display-5">{{post.title}}</h1>
     <p class="fs-3 text-break">
         <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(post.author.image.read())}}">
-        {{post.year}}
-        {{post.director}}
-        {{post.genre}}
-        {{post.review}}
+        {{post.director}} <br>
+        {{post.genre}} <br>
+        {{post.review}} <br>
         {{post.rating}}
     </p>
+    
     <a href="/comment/new/{{post.id}}" class="btn btn-primary btn-sm" role="button">New Comment</a>
 
     <div class="ms-5">
@@ -53,5 +53,5 @@
 {% else %}
     <h1 class="display-5">No Post</h1>
 {% endif %}
-
+</body>
 {% endblock %}

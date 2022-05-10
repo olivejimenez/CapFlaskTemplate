@@ -6,7 +6,7 @@ from tkinter.tix import Select
 from flask.app import Flask
 from flask import flash
 from flask_wtf import FlaskForm
-from mongoengine.fields import EmailField, IntField
+from mongoengine.fields import EmailField, IntField 
 import mongoengine.errors
 #from wtforms.fields.html5 import URLField, DateField, DateTimeField, EmailField
 from wtforms.validators import URL, NumberRange, Email, Optional, InputRequired, ValidationError, DataRequired, EqualTo
@@ -63,9 +63,8 @@ class ProfileForm(FlaskForm):
 
 class PostForm(FlaskForm):
     title = StringField('Movie', validators=[DataRequired()])
-    year = IntField()
     director = StringField('Director', validators=[DataRequired()])
-    genre = SelectField('Genre', choices=[("comedy","comedy"),("horror","horror"),("drama","drama","experimental","experimental")])
+    genre = SelectField('Genre', choices=[("comedy","comedy"),("horror","horror"),("drama","drama"),("experimental","experimental")])
     review = TextAreaField('Post', validators=[DataRequired()])
     rating = SelectField('review', choices = [("1 star", "1 star"),("2 stars", "2 stars"),("3 stars", "3 stars"),("4 stars", "4 stars"),("5 stars","5 stars")])
     submit = SubmitField('Post')

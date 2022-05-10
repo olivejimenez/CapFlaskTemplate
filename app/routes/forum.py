@@ -95,11 +95,10 @@ def postNew():
         newPost = Post(
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
-            title = form.subject.data,
-            year = form.content.data,
-            director = form.content.data,
-            genre = form.select.data,
-            review = form.content.data,
+            title = form.title.data,
+            director = form.director.data,
+            genre = form.genre.data,
+            review = form.review.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
             modifydate = dt.datetime.utcnow
@@ -142,11 +141,10 @@ def postEdit(postID):
     if form.validate_on_submit():
         # update() is mongoengine method for updating an existing document with new data.
         editPost.update(
-            title = form.subject.data,
-            year = form.content.data,
-            director = form.content.data,
-            genre = form.select.data,
-            review = form.content.data,
+            title = form.title.data,
+            director = form.director.data,
+            genre = form.genre.data,
+            review = form.review.data,
             author = current_user.id,
             modifydate = dt.datetime.utcnow
         )
@@ -155,10 +153,7 @@ def postEdit(postID):
 
     # if the form has NOT been submitted then take the data from the editPost object
     # and place it in the form object so it will be displayed to the user on the template.
-    form.subject.data = editPost.subject
-    form.content.data = editPost.content
     form.title.data = editPost.title
-    form.year.data =editPost.year
     form.director.data = editPost.director
     form.genre.data = editPost.genre
     form.review.data = editPost.review
