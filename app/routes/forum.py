@@ -33,7 +33,7 @@ def postList():
 @app.route('/post/<postID>')
 # This route will only run if the user is logged in.
 @login_required
-def Post(postID):
+def aPost(postID):
     # retrieve the post using the postID
     thisPost = Post.objects.get(id=postID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
@@ -112,7 +112,7 @@ def postNew():
         # to send them to that post. url_for takes as its argument the function name
         # for that route (the part after the def key word). You also need to send any
         # other values that are needed by the route you are redirecting to.
-        return redirect(url_for('post',postID=newPost.id))
+        return redirect(url_for('aPost',postID=newPost.id))
 
     # if form.validate_on_submit() is false then the user either has not yet filled out
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
@@ -149,7 +149,7 @@ def postEdit(postID):
             modifydate = dt.datetime.utcnow
         )
         # After updating the document, send the user to the updated post using a redirect.
-        return redirect(url_for('post',postID=postID))
+        return redirect(url_for('aPost',postID=postID))
 
     # if the form has NOT been submitted then take the data from the editPost object
     # and place it in the form object so it will be displayed to the user on the template.
