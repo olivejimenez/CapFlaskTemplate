@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/posts">Reviews</a>
+          <a class="nav-link" href="/post/list">Reviews</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/movielist">Movies</a>
@@ -23,7 +23,7 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="/myprofile">{{ current_user.username }}</a>
+            <a style="color:brown;"class="nav-link" href="/myprofile">{{ current_user.username }}</a>
           </li>          
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>

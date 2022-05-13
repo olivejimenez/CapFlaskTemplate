@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<body style="font-family: courier;">
+<body style="font-family: courier; background-color: linen;">
 {% if post %}
 
 {{moment(post.createdate).calendar()}} by {{post.author.username}} 

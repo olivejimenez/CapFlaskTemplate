@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<body style = "background-color:linen; font-family: 'Courier New', Courier, monospace;">
 <div class="row">
     <div class="col-4">
         <h1 class="display-1">All Posts</h1>
@@ -16,7 +17,7 @@
         <div class="row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
+                <h6 class="display-5">Date</h6>
                 {% endif %}
 
                 <a href="/post/{{post.id}}">
@@ -25,43 +26,37 @@
             </div>
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
+                    <h6 class="display-5">User</h6>
                 {% endif %}
                 {{post.author.username}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Movie Title</h3>
+                    <h6 class="display-5">Movie Title</h6>
                 {% endif %}
                 {{post.title}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Year</h3>
-                {% endif %}
-                {{post.year}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Director</h3>
+                    <h6 class="display-5">Director</h6>
                 {% endif %}
                 {{post.director}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Genre</h3>
+                    <h6 class="display-5">Genre</h6>
                 {% endif %}
                 {{post.genre}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Review</h3>
+                    <h6 class="display-5">Review</h6>
                 {% endif %}
                 {{post.review}}
              </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Rating</h3>
+                    <h6 class="display-5">Rating</h6>
                 {% endif %}
                 {{post.rating}}
             </div>
@@ -70,5 +65,5 @@
 {% else %}
     <h1>No Posts</h1>
 {% endif %}
-
+</body>
 {% endblock %}
